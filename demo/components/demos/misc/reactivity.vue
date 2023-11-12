@@ -1,22 +1,25 @@
 <template>
-
-<div>
-	<ssr-carousel :slides-per-page='2' paginate-by-slide loop peek='40px'>
-		<slide :index='1' :class='{ invert }'>
-			<button @click='invert = !invert'>Invert the slide</button>
-		</slide>
-		<slide :index='2'></slide>
-		<slide :index='3'></slide>
-	</ssr-carousel>
-</div>
-
+  <div>
+    <ssr-carousel :slides-per-page="2" paginate-by-slide loop peek="40px">
+      <slide :index="1" :class="{ invert }">
+        <button @click="invert = !invert">Invert the slide</button>
+      </slide>
+      <slide :index="2"></slide>
+      <slide :index="3"></slide>
+    </ssr-carousel>
+  </div>
 </template>
 
 <script>
+import Slide from '~/components/slide.vue';
+
 export default {
+  components: {
+    Slide
+  },
   data() {
     return { invert: false };
-  },
+  }
 };
 </script>
 

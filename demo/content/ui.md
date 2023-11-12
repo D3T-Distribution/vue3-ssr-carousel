@@ -22,17 +22,17 @@ title: 'UI Options'
 <ssr-carousel show-arrows>
 
   <template>
-    <slide :index='1'></slide>
-    <slide :index='2'></slide>
-    <slide :index='3'></slide>
+    <slide :index="1"></slide>
+    <slide :index="2"></slide>
+    <slide :index="3"></slide>
   </template>
 
-  <template #back-arrow='{ disabled }'>
-    Back {{ disabled ? "(Disabled)" : '' }}
+  <template #back-arrow="{ disabled }">
+    Back {{ disabled ? "(Disabled)" : "" }}
   </template>
 
-  <template #next-arrow='{ disabled }'>
-    Next {{ disabled ? "(Disabled)" : '' }}
+  <template #next-arrow="{ disabled }">
+    Next {{ disabled ? "(Disabled)" : "" }}
   </template>
 </ssr-carousel>
 ```
@@ -43,9 +43,9 @@ title: 'UI Options'
 
 ```vue
 <ssr-carousel show-dots>
-  <slide :index='1'></slide>
-  <slide :index='2'></slide>
-  <slide :index='3'></slide>
+  <slide :index="1"></slide>
+  <slide :index="2"></slide>
+  <slide :index="3"></slide>
 </ssr-carousel>
 ```
 
@@ -58,14 +58,15 @@ title: 'UI Options'
   show-arrows
   show-dots
   paginate-by-slide
-  :slides-per-page='2'
-  :gutter='20'>
-  <slide :index='1'></slide>
-  <slide :index='2'></slide>
-  <slide :index='3'></slide>
-  <slide :index='4'></slide>
-  <slide :index='5'></slide>
-  <slide :index='6'></slide>
+  :slides-per-page="2"
+  :gutter="20"
+>
+  <slide :index="1"></slide>
+  <slide :index="2"></slide>
+  <slide :index="3"></slide>
+  <slide :index="4"></slide>
+  <slide :index="5"></slide>
+  <slide :index="6"></slide>
 </ssr-carousel>
 ```
 
@@ -77,8 +78,8 @@ Also, you can use the `no-drag` prop to disable dragging.
 
 ```vue
 <ssr-carousel no-drag show-arrows>
-  <slide :index='1'></slide>
-  <slide :index='2'></slide>
-  <slide :index='3'></slide>
+  <slide :index="1"></slide>
+  <slide :index="2"></slide>
+  <slide :index="3"></slide>
 </ssr-carousel>
 ```

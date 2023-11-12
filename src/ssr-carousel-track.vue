@@ -1,198 +1,244 @@
 <!-- The track that hosts the slides -->
+<script>
+import { h, Fragment } from 'vue';
 
-<script lang='coffee'>
-interactiveSelector = 'a, button, input, textarea, select'
-export default
+const interactiveSelector = 'a, button, input, textarea, select';
+const getSlotChildrenText = (node) => {
+  if (!node.children || typeof node.children === 'string')
+    return node.children || '';
+  else if (Array.isArray(node.children))
+    return getSlotChildrenText(node.children);
+  else if (node.children.default)
+    return getSlotChildrenText(node.children.default);
+};
 
-	props:
-		dragging: Boolean
-		trackTranslateX: Number
-		slideOrder: Array
-		activeSlides: Array
-		leftPeekingSlideIndex: Number
-		rightPeekingSlideIndex: Number
+export default {
+  props: {
+    dragging: {
+      type: Boolean
+    },
+    trackTranslateX: {
+      type: Number
+    },
+    slideOrder: {
+      type: Array
+    },
+    activeSlides: {
+      type: Array
+    },
+    leftPeekingSlideIndex: {
+      type: Number
+    },
+    rightPeekingSlideIndex: {
+      type: Number
+    }
+  },
 
-	data: ->
+  // Set tabindex of inactive slides on mount
+  mounted() {
+    this.denyTabIndex(this.inactiveSlides);
+    this.denyTabIndex(this.clonedSlides);
+  },
 
-		# Should the track element be an ul
-		renderAsList: false
+  computed: {
+    // Get the count of non-cloned slides
+    uniqueSlidesCount() {
+      return this.slideOrder.length;
+    },
 
-		# Should the track element be a tablist
-		renderAsTablist: false
+    // Get the total slides count, including clones
+    allSlidesCount() {
+      return this.getSlideComponents().length;
+    },
 
-	# Set tabindex of inactive slides on mount
-	mounted: ->
-		@denyTabindex @inactiveSlides
-		@denyTabindex @clonedSlides
+    // Make an array of inactive slide indices
+    // Make an array of inactive slide indices
+    inactiveSlides() {
+      return Array.from(
+        { length: this.uniqueSlidesCount },
+        (_, index) => index
+      ).filter((index) => !this.activeSlides.includes(index));
+    },
 
-	computed:
+    // An array of the cloned slides indices
+    clonedSlides() {
+      return Array.from(
+        { length: this.allSlidesCount - this.uniqueSlidesCount },
+        (_, index) => index + this.uniqueSlidesCount
+      );
+    },
 
-		# The HTML element of the track
-		trackHTMLElement: -> if @renderAsList then 'ul' else 'div'
+    // Styles that are used to position the track
+    styles() {
+      if (this.trackTranslateX) {
+        return {
+          transform: `translateX(${this.trackTranslateX}px)`
+        };
+      }
+    }
+  },
 
-		# Get the count of non-cloned slides
-		uniqueSlidesCount: -> @slideOrder.length
+  // Update the tabindex of interactive elements when slides change
+  watch: {
+    activeSlides() {
+      this.allowTabIndex(this.activeSlides);
+      this.denyTabIndex(this.inactiveSlides);
+    }
+  },
+  methods: {
+    makeSlides() {
+      return this.getSlideComponents().map((vnode, index) => {
+        // This is a peeking clone if it's index is greater than the slide count
+        const slideCount = this.uniqueSlidesCount;
+        const isPeekingClone = index >= slideCount;
+        const peekingIndex = index - slideCount;
 
-		# Get the total slides count, including clones
-		allSlidesCount: -> @getSlideComponents().length
+        let {
+          class: staticClass = '',
+          style = {},
+          attrs = {}
+        } = vnode.props || {};
+        let key = vnode.key;
 
-		# Check if there are cloned slides
-		hasClonedSlides: -> @allSlidesCount > @uniqueSlidesCount
+        // Add the slide class using staticClass since it isn't reactive to data
+        const cssClass = 'ssr-carousel-slide';
+        staticClass += staticClass ? ` ${cssClass}` : cssClass;
 
-		# Make an array of inactive slide indices
-		inactiveSlides: ->
-			[0...@uniqueSlidesCount]
-			.filter (index) => index not in @activeSlides
+        // Order the slide, like for looping
+        if (!isPeekingClone) {
+          style.order = this.slideOrder[index] || 0;
+        }
 
-		# An array of the cloned slides indices
-		clonedSlides: -> [@uniqueSlidesCount...@allSlidesCount]
+        // Or put at the beginning / end if peeking
+        else {
+          style.order =
+            peekingIndex === this.leftPeekingSlideIndex
+              ? '-1'
+              : peekingIndex === this.rightPeekingSlideIndex
+              ? this.slideOrder.length
+              : undefined;
+        }
 
-		# Styles that are used to position the track
-		styles: ->
-			transform: "translateX(#{@trackTranslateX}px)" if @trackTranslateX
+        // Hide cloned slides that aren't involved in peeking
+        if (
+          isPeekingClone &&
+          ![this.leftPeekingSlideIndex, this.rightPeekingSlideIndex].includes(
+            peekingIndex
+          )
+        ) {
+          style.display = 'none';
+        }
 
-	# Update the tabindex of interactive elements when slides change
-	watch: activeSlides: ->
-		@allowTabindex @activeSlides
-		@denyTabindex @inactiveSlides
+        // Make peeking clones and slides not in viewport as aria-hidden
+        if (isPeekingClone || !this.activeSlides.includes(index)) {
+          attrs['aria-hidden'] = 'true';
+        }
 
-	methods:
+        // Prevent duplicate keys on clones
+        if (isPeekingClone && key) {
+          key += `-clone-${index}`;
+        }
 
-		# Make the slides to render into the track
-		makeSlides: -> @getSlideComponents().map (vnode, index) =>
-			vnode = @makeReactiveVnode vnode
+        vnode.key = key;
+        vnode.props = {
+          ...vnode.props,
+          class: staticClass,
+          style,
+          ...attrs
+        };
 
-			# Check if we are rendering a list of elements
-			@renderAsList = true if index == 0 and vnode.tag == 'li'
+        // Return modified vnode
+        return vnode;
+      });
+    },
+    getDefaultSlides(vnodes) {
+      return vnodes.reduce((acc, vnode) => {
+        if (vnode.type === Fragment) {
+          if (Array.isArray(vnode.children)) {
+            acc = [...acc, ...this.getDefaultSlides(vnode.children)];
+          }
+        } else {
+          acc.push(vnode);
+        }
+        return acc;
+      }, []);
+    },
+    // Get the list of non-text slides, including peeking clones. This doesn't
+    // work as a computed function
+    getSlideComponents() {
+      const defaultSlots = this.getDefaultSlides(this.$slots.default() || []);
+      const clonedSlots = this.getDefaultSlides(this.$slots.clones?.() || []);
+      return [...defaultSlots, ...clonedSlots].filter(
+        (vnode) => !getSlotChildrenText(vnode)
+      );
+    },
 
-			# Check if we are rendering a tablist
-			@renderAsTablist = true if index == 0 and vnode?.data?.attrs?.role == 'tab'
+    // Prevent tabbing to interactive elements in slides with the passed in
+    // index values
+    denyTabIndex(indices) {
+      this.setTabIndex(indices, -1);
+    },
 
-			# This is a peeking clone if it's index is greater than the slide count
-			slideCount = @uniqueSlidesCount
-			isPeekingClone = index >= slideCount
-			peekingIndex = index - slideCount
+    // Allow tabindex on interactive elements in slides with the passed in
+    // index values
+    allowTabIndex(indices) {
+      this.setTabIndex(indices, 0);
+    },
 
-			# Add the slide class using staticClass since it isn't reactive to data
-			cssClass = 'ssr-carousel-slide'
-			if vnode.data.staticClass
-			then vnode.data.staticClass += " #{cssClass}"
-			else vnode.data.staticClass = cssClass
+    // Set tabindex value on interactive elements in slides with the passed in slides
+    setTabIndex(indices, tabindexValue) {
+      for (const el of this.getSlideElementsByIndices(indices)) {
+        // Set tabindex value on the slide, like in the case that the slide is
+        // an <a>
+        if (el.matches(interactiveSelector)) {
+          el.tabIndex = tabindexValue;
+        }
 
-			# Order the slide, like for looping
-			unless isPeekingClone
-			then vnode.data.style.order = @slideOrder[index] || 0
+        // Set tabindex values on all interactive children
+        el.querySelectorAll(interactiveSelector).forEach((el) => {
+          el.tabIndex = tabindexValue;
+        });
+      }
+    },
 
-			# Or put at the beginning / end if peeking
-			else vnode.data.style.order = switch
-				when peekingIndex == @leftPeekingSlideIndex then '-1'
-				when peekingIndex == @rightPeekingSlideIndex then @slideOrder.length
-
-			# Hide cloned slides that aren't involved in peeking
-			if isPeekingClone and peekingIndex not in [
-					@leftPeekingSlideIndex
-					@rightPeekingSlideIndex
-				]
-			then vnode.data.style.display = 'none'
-
-			# Make peeking clones and slides not in viewport as aria-hidden
-			if isPeekingClone or index not in @activeSlides
-			then vnode.data.attrs['aria-hidden'] = 'true'
-
-			# Prevent duplicate keys on clones
-			if isPeekingClone and vnode.key?
-			then vnode.key += '-clone-' + index
-
-			# Return modified vnode
-			return vnode
-
-		# Get the list of non-text slides, including peeking clones. This doesn't
-		# work as a computed function
-		getSlideComponents: ->
-			[...(@$slots.default || []), ...(@$slots.clones || [])]
-			.filter (vnode) -> !vnode.text
-
-		# Makes a clone of the vnode properties we'll be updating so the changes
-		# get rendered. Based on:
-		# https://github.com/vuejs/vue/issues/6052#issuecomment-313705168
-		makeReactiveVnode: (vnode) ->
-
-			# Expect a data object.  When it doesn't exist, it's a sign this this
-			# vnode can't be manipulated vue-ssr-carousel.
-			console.error "vnode has no data", vnode unless vnode.data
-
-			# Make the new vnode and data
-			newVnode = { ...vnode }
-			newVnode.data = { ...vnode.data }
-
-			# Clone style property. String styles will be on staticStyle so we can
-			# ignore them.
-			newVnode.data.style = { ...vnode.data.style }
-
-			# Clone attrs property
-			newVnode.data.attrs = { ...vnode.data.attrs }
-
-			# Return the clone
-			return newVnode
-
-		# Prevent tabbing to interactive elements in slides with the passed in
-		# index values
-		denyTabindex: (indices) -> @setTabindex indices, -1
-
-		# Allow tabindex on interactive elements in slides with the passed in
-		# index values
-		allowTabindex: (indices) -> @setTabindex indices, 0
-
-		# Set tabindex value on interactive elements in slides
-		setTabindex: (slideIndices, tabindexValue) ->
-			for el in @getSlideElementsByIndices slideIndices
-
-				# Set tabindex value on the slide, like in the case that the slide is
-				# an <a>
-				if el.matches interactiveSelector then el.tabIndex = tabindexValue
-
-				# Set tabindex values on all interactive children
-				el.querySelectorAll(interactiveSelector).forEach (el) ->
-					el.tabIndex = tabindexValue
-
-		# Get the slide elements that match the array of indices
-		getSlideElementsByIndices: (slideIndices) ->
-			Array.from(@$el.children).filter (el, i) -> i in slideIndices
-
-	# Render the track and slotted slides
-	render: (create) ->
-
-		create @trackHTMLElement,
-			attrs: {role: "tablist" if @renderAsTablist}
-			class: [ 'ssr-carousel-track', { @dragging } ]
-			style: @styles
-		, @makeSlides()
-
+    // Get the slide elements that match the array of indices
+    getSlideElementsByIndices(slideIndices) {
+      return Array.from(this.$el.children).filter((el, i) => i in slideIndices);
+    }
+  },
+  render() {
+    return h(
+      'div',
+      {
+        class: ['ssr-carousel-track', { dragging: this.dragging }],
+        style: this.styles
+      },
+      this.makeSlides()
+    );
+  }
+};
 </script>
 
-<!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-<style lang='stylus'>
-
+<style lang="scss">
 // Setup slides for horizontal layout
-.ssr-carousel-track
-	display flex
+.ssr-carousel-track {
+  display: flex;
 
-	// Don't allow text selection
-	user-select none
+  // Don't allow text selection
+  user-select: none;
 
-	// When dragging, disable pointer events. This clears a tick after the mouse
-	// is released so links aren't followed on mouse up.
-	&.dragging
-		pointer-events none
+  // When dragging, disable pointer events. This clears a tick after the mouse
+  // is released so links aren't followed on mouse up.
+  &.dragging {
+    pointer-events: none;
+  }
+}
 
-// Force the slides to not shrink below their basis
-.ssr-carousel-slide
-	flex-shrink 0
+.ssr-carousel-slide {
+  flex-shrink: 0;
+}
 
-// When the carousel is disabled (not enough slides to fill width), hide any
-// clones that have created for other breakpoints (those with aria-hidden=true).
-.ssr-carousel-mask.disabled .ssr-carousel-slide[aria-hidden='true']
-	display none
-
+.ssr-carousel-mask.disabled .ssr-carousel-slide[aria-hidden='true'] {
+  display: none;
+}
 </style>

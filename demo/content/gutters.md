@@ -7,10 +7,10 @@ title: 'Gutter Options'
 <demos-gutters-numbers></demos-gutters-numbers>
 
 ```vue
-<ssr-carousel :slides-per-page='2' :gutter='40'>
-  <slide :index='1'></slide>
-  <slide :index='2'></slide>
-  <slide :index='3'></slide>
+<ssr-carousel :slides-per-page="2" :gutter="40">
+  <slide :index="1"></slide>
+  <slide :index="2"></slide>
+  <slide :index="3"></slide>
 </ssr-carousel>
 ```
 
@@ -19,10 +19,10 @@ title: 'Gutter Options'
 <demos-gutters-css></demos-gutters-css>
 
 ```vue
-<ssr-carousel :slides-per-page='2' gutter='3%'>
-  <slide :index='1'></slide>
-  <slide :index='2'></slide>
-  <slide :index='3'></slide>
+<ssr-carousel :slides-per-page="2" gutter="3%">
+  <slide :index="1"></slide>
+  <slide :index="2"></slide>
+  <slide :index="3"></slide>
 </ssr-carousel>
 ```
 
@@ -32,15 +32,16 @@ title: 'Gutter Options'
 
 ```vue
 <template>
-  <ssr-carousel :slides-per-page='2' gutter='var(--fluid-gutter)'>
-    <slide :index='1'></slide>
-    <slide :index='2'></slide>
-    <slide :index='3'></slide>
+  <ssr-carousel :slides-per-page="2" gutter="var(--fluid-gutter)">
+    <slide :index="1"></slide>
+    <slide :index="2"></slide>
+    <slide :index="3"></slide>
   </ssr-carousel>
 </template>
-<style lang="stylus">
-body
-  fluid --fluid-gutter, 40, 20
+<style lang="scss">
+body {
+  --fluid-gutter: 40px, 20px;
+}
 </style>
 ```
 
@@ -50,19 +51,20 @@ body
 
 ```vue
 <ssr-carousel
-  :slides-per-page='3'
-  :gutter='40'
-  :responsive='[
+  :slides-per-page="3"
+  :gutter="40"
+  :responsive="[
     {
       maxWidth: 1024,
       slidesPerPage: 2,
-      gutter: 20,
+      gutter: 20
     }
-  ]'>
-  <slide :index='1'></slide>
-  <slide :index='2'></slide>
-  <slide :index='3'></slide>
-  <slide :index='4'></slide>
-  <slide :index='5'></slide>
+  ]"
+>
+  <slide :index="1"></slide>
+  <slide :index="2"></slide>
+  <slide :index="3"></slide>
+  <slide :index="4"></slide>
+  <slide :index="5"></slide>
 </ssr-carousel>
 ```

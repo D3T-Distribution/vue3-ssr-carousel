@@ -1,21 +1,30 @@
 <template>
-
-<ssr-carousel
-  data-cy='disabling'
-  show-arrows
-  show-dots
-  loop
-  :peek='20'
-  :slides-per-page='3'
-  :responsive='[
-    {
-      maxWidth: 767,
-      gutter: 10,
-      slidesPerPage: 1
-    }
-  ]'>
-  <slide :index='1'></slide>
-  <slide :index='2'></slide>
-</ssr-carousel>
-
+  <ssr-carousel
+    data-cy="disabling"
+    show-arrows
+    show-dots
+    loop
+    :peek="20"
+    :slides-per-page="3"
+    :responsive="[
+      {
+        maxWidth: 767,
+        gutter: 10,
+        slidesPerPage: 1
+      }
+    ]"
+  >
+    <slide :index="1"></slide>
+    <slide :index="2"></slide>
+  </ssr-carousel>
 </template>
+
+<script>
+import Slide from '~/components/slide.vue';
+
+export default {
+  components: {
+    Slide
+  }
+};
+</script>

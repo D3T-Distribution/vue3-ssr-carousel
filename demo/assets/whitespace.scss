@@ -1,0 +1,29 @@
+// Common max-w* rules
+.max-w-small,
+.max-w-medium,
+.max-w {
+  margin: 0 auto;
+  width: 100%;
+}
+
+// Apply varying max-widths
+.max-w-small {
+  max-width: 830px;
+}
+
+.max-w-medium {
+  max-width: 1140px;
+}
+
+.max-w {
+  max-width: 1360px;
+}
+
+// No gutters since there typically wraps other max-w-* instances that have
+// their own gutters
+.max-w-full {
+  max-width: 2560px;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+}

@@ -1,33 +1,23 @@
 <!-- A little logo for the demo -->
 
-<template lang='pug'>
-
-.layout-logo
-	a(href='https://github.com/BKWLD/vue-ssr-carousel')
-		| vue-ssr-carousel
-
+<template>
+  <div class="layout-logo">
+    <a href="https://github.com/D3T-Distribution/vue3-ssr-carousel"
+      >vue3-ssr-carousel</a
+    >
+  </div>
 </template>
 
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-<script lang='coffee'>
-# export default
-# 	components:
-# 	props: []
-# 	data: ->
-# 	computed:
-# 	watch:
-# 	methods:
-</script>
-
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-<style lang='stylus' scoped>
-
-.layout-logo
-	font-weight 600
-	text-shadow 0 0 7px primary-color,
-		0 0 10px primary-color,
-		0 0 20px rgba(primary-color, 0.5)
-
+<style lang="scss" scoped>
+.layout-logo {
+  font-weight: 600;
+  text-shadow:
+    0 0 7px red,
+    0 0 10px red,
+    0 0 20px rgba(red, 0.5);
+}
 </style>

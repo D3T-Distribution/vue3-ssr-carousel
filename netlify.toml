@@ -1,4 +1,3 @@
 [build]
-	command = "yarn generate --force-build"
+	command = "yarn generate"
 	publish = "demo/dist"
-	functions = "demo/functions"
