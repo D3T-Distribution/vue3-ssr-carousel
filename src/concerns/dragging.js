@@ -152,7 +152,7 @@ export default {
     },
     // Keep track of whether the user is dragging
     onPointerDown(pointerEvent) {
-      this.isTouchDrag = TouchEvent && pointerEvent instanceof TouchEvent;
+      this.isTouchDrag = window.TouchEvent && pointerEvent instanceof TouchEvent;
       this.startPointer = this.lastPointer =
         this.getPointerCoords(pointerEvent);
       this.pressing = true;
