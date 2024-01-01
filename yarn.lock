@@ -472,7 +472,7 @@ __metadata:
     "@nuxt/content": "npm:2.9.0"
     "@nuxt/image": "npm:^1.0.0"
     "@percy/cypress": "npm:^3.1.2"
-    cypress: "npm:13.5.0"
+    cypress: "npm:13.6.2"
     nuxt: "npm:^3.8.1"
     prettier: "npm:^3.1.0"
     prism-themes: "npm:^1.9.0"
@@ -3847,9 +3847,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:13.5.0":
-  version: 13.5.0
-  resolution: "cypress@npm:13.5.0"
+"cypress@npm:13.6.2":
+  version: 13.6.2
+  resolution: "cypress@npm:13.6.2"
   dependencies:
     "@cypress/request": "npm:^3.0.0"
     "@cypress/xvfb": "npm:^1.2.4"
@@ -3896,7 +3896,7 @@ __metadata:
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: 658bfc3f512c04d907ba46098b854ae752837fa1f4b4adeb73b31786aad7065fadb99e468899f764f1dc63a688d2b6d957982cefe85712476a928a7d3b299d61
+  checksum: deee1d7c876db5b6078ea80c0a3fbdefac399c68ee71ab461944d3f091c6ba8409bb36ca759ee25559b069bae2cd01214f87dea62527da2afb71219e17921d58
   languageName: node
   linkType: hard
 
