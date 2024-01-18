@@ -5,7 +5,7 @@
     "url": "git+https://github.com/D3T-Distribution/vue3-ssr-carousel"
   },
   "author": "D3T Distribution <it@motoblouz.com>",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "packageManager": "yarn@4.0.1",
   "scripts": {
     "dev": "nuxi dev demo",
