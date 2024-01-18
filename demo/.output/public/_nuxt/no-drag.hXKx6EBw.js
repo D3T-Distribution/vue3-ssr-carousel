@@ -1,0 +1,1 @@
+import n from"./slide.TFm6ElMu.js";import{_ as t,r,o as a,f as c,w as _,b as e}from"./entry.mIXH7iIk.js";const d={components:{Slide:n}};function p(i,m,f,l,u,x){const o=n,s=r("ssr-carousel");return a(),c(s,{"no-drag":"","show-arrows":"","data-cy":"no-drag"},{default:_(()=>[e(o,{index:1}),e(o,{index:2}),e(o,{index:3})]),_:1})}const g=t(d,[["render",p]]);export{g as default};

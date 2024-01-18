@@ -1,1 +1,0 @@
-import s from"./slide.aEF8gWbs.js";import{_ as n,r,o as c,f as _,w as a,b as o}from"./entry.wMIcRyRm.js";const p={components:{Slide:s}};function d(i,m,l,u,f,x){const e=s,t=r("ssr-carousel");return c(),_(t,{"slides-per-page":2,gutter:40},{default:a(()=>[o(e,{index:1}),o(e,{index:2}),o(e,{index:3})]),_:1})}const g=n(p,[["render",d]]);export{g as default};

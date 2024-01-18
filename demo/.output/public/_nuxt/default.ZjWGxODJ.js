@@ -1,0 +1,1 @@
+import{_ as e,c as a,b as o,o as n,ag as c}from"./entry.mIXH7iIk.js";const s={name:"DefaultLayout"},_={class:"default-layout max-w"};function r(u,p,f,l,m,d){const t=c;return n(),a("main",_,[o(t)])}const x=e(s,[["render",r]]);export{x as default};
