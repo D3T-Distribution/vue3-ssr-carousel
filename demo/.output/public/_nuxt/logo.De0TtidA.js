@@ -1,0 +1,1 @@
+import{_ as o,o as s,c as t,p as c,e as a,a as _}from"./entry.wMIcRyRm.js";const r={},n=e=>(c("data-v-b1fe1f90"),e=e(),a(),e),d={class:"layout-logo"},p=n(()=>_("a",{href:"https://github.com/D3T-Distribution/vue3-ssr-carousel"},"vue3-ssr-carousel",-1)),i=[p];function u(e,f){return s(),t("div",d,i)}const l=o(r,[["render",u],["__scopeId","data-v-b1fe1f90"]]);export{l as default};

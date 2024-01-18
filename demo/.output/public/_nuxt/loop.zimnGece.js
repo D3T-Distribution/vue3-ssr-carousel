@@ -1,0 +1,1 @@
+import t from"./slide.aEF8gWbs.js";import{_ as s,r,o as c,f as _,w as p,b as o}from"./entry.wMIcRyRm.js";const a={components:{Slide:t}};function i(l,d,f,m,u,x){const e=t,n=r("ssr-carousel");return c(),_(n,{loop:"","peek-left":40,"peek-right":40},{default:p(()=>[o(e,{index:1}),o(e,{index:2}),o(e,{index:3})]),_:1})}const h=s(a,[["render",i]]);export{h as default};
