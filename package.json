@@ -23,7 +23,7 @@
     "@percy/cypress": "^3.1.2",
     "cypress": "13.6.3",
     "nuxt": "^3.9.3",
-    "prettier": "^3.2.4",
+    "prettier": "^3.2.5",
     "prism-themes": "^1.9.0",
     "release-it": "^17.0.1",
     "sass": "^1.70.0",
