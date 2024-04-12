@@ -145,7 +145,7 @@ Here are a few ways you can get involved:
 ### Installation
 
 ```sh
-# Install dependencies and start dev server (http://localhost:3000)
+# Install dependencies and start dev server (http://localhost:3006)
 yarn install && yarn dev
 ```
 
