@@ -9,6 +9,9 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Install the dependencies
         run: yarn install
 
@@ -17,7 +20,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
 
       - name: Initialize Git user
         run: |
