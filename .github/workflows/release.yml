@@ -13,7 +13,7 @@ jobs:
         run: corepack enable
 
       - name: Install the dependencies
-        run: yarn install
+        run: yarn set version stable && yarn install
 
       # Setup .npmrc file to publish to npm
       - name: Initialise the NPM config
