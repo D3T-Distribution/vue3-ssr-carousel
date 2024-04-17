@@ -1,23 +1,31 @@
 name: Release & Publish to NPM
-on: workflow_dispatch
+
+on:
+  workflow_dispatch:
+    paths-ignore:
+      - 'README.md'
 
 jobs:
   release:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
+      - name: Run actions/checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
 
-      - name: Install the dependencies
-        run: yarn install
+      - name: Enable corepack (convention to install and use yarn)
+        run: corepack enable
 
-      # Setup .npmrc file to publish to npm
-      - name: Initialise the NPM config
-        uses: actions/setup-node@v4
+      - name: Run actions/setup-node
+        uses: actions/setup-node@master
         with:
           node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install
 
       - name: Initialize Git user
         run: |

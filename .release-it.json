@@ -8,9 +8,32 @@
     "after:bump": "npx auto-changelog -p"
   },
   "github": {
-    "release": true
+    "release": true,
+    "releaseName": "v${version}"
   },
   "npm": {
     "publish": true
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "🚀 Features"
+          },
+          {
+            "type": "fix",
+            "section": "🔧 Bug Fixes"
+          },
+          {
+            "type": "chore",
+            "section": "➕ Other"
+          }
+        ]
+      }
+    }
   }
 }

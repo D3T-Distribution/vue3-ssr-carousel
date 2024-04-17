@@ -22,6 +22,7 @@
     "@nuxt/content": "2.12.1",
     "@nuxt/image": "^1.5.0",
     "@percy/cypress": "^3.1.2",
+    "@release-it/conventional-changelog": "^8.0.1",
     "cypress": "13.7.3",
     "nuxt": "^3.11.2",
     "prettier": "^3.2.5",
