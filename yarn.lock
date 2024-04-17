@@ -437,9 +437,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/code-coverage@npm:^3.12.34":
-  version: 3.12.34
-  resolution: "@cypress/code-coverage@npm:3.12.34"
+"@cypress/code-coverage@npm:^3.12.35":
+  version: 3.12.35
+  resolution: "@cypress/code-coverage@npm:3.12.35"
   dependencies:
     "@cypress/webpack-preprocessor": "npm:^6.0.0"
     chalk: "npm:4.1.2"
@@ -456,7 +456,7 @@ __metadata:
     babel-loader: ^8.3 || ^9
     cypress: "*"
     webpack: ^4 || ^5
-  checksum: 10c0/276a66f95086f201e19a697fcaf259c5e0bedd7adda61b2c4329e29a6a0a94749e42ee8a2de2dd1f38fdd031ffb99ac740d0c93684ab5210fddfc564b884b96a
+  checksum: 10c0/feaab90159b2609b9565cf299901a80a718bce2d316657450bfc393fde8f4e9b264d27fecd23fc0f97e6248af33e4d177d234ff043fe8e8e16edeb8a25a486a0
   languageName: node
   linkType: hard
 
@@ -516,7 +516,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@d3t-distribution/vue3-ssr-carousel@workspace:."
   dependencies:
-    "@cypress/code-coverage": "npm:^3.12.34"
+    "@cypress/code-coverage": "npm:^3.12.35"
     "@nuxt/content": "npm:2.12.1"
     "@nuxt/image": "npm:^1.5.0"
     "@percy/cypress": "npm:^3.1.2"
