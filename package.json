@@ -1,11 +1,12 @@
 {
   "name": "@d3t-distribution/vue3-ssr-carousel",
+  "description": "Vue 3/Nuxt 3 compatible SSR carousel",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/D3T-Distribution/vue3-ssr-carousel"
   },
   "author": "D3T Distribution <it@motoblouz.com>",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "packageManager": "yarn@4.4.0",
   "scripts": {
     "dev": "nuxi dev demo --port=3006",
