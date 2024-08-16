@@ -6,7 +6,7 @@
   },
   "author": "D3T Distribution <it@motoblouz.com>",
   "version": "0.2.0",
-  "packageManager": "yarn@4.3.1",
+  "packageManager": "yarn@4.4.0",
   "scripts": {
     "dev": "nuxi dev demo --port=3006",
     "build": "nuxi build demo",
@@ -18,17 +18,17 @@
     "lint": "prettier --write ."
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.12.42",
-    "@nuxt/content": "2.13.1",
+    "@cypress/code-coverage": "^3.12.45",
+    "@nuxt/content": "2.13.2",
     "@nuxt/image": "^1.7.0",
     "@percy/cypress": "^3.1.2",
     "@release-it/conventional-changelog": "^8.0.1",
-    "cypress": "13.13.1",
-    "nuxt": "^3.12.3",
+    "cypress": "13.13.3",
+    "nuxt": "^3.12.4",
     "prettier": "^3.3.3",
     "prism-themes": "^1.9.0",
     "release-it": "^17.6.0",
     "sass": "^1.77.8",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   }
 }
