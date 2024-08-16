@@ -1,4 +1,4 @@
-# vue3-ssr-carousel
+# @d3t-distribution/vue3-ssr-carousel
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7b82aec7-2f1a-4d02-b178-9c1dfb5be90f/deploy-status)](https://app.netlify.com/sites/vue3-ssr-carousel/deploys)
 <a href="https://www.npmjs.com/package/@d3t-distribution/vue3-ssr-carousel"><img src="https://img.shields.io/npm/v/@d3t-distribution/vue3-ssr-carousel.svg?style=flat&colorA=18181B&colorB=28CF8D" alt="Version"></a>
@@ -17,7 +17,7 @@ Check out the demo: https://vue3-ssr-carousel.netlify.app
 ## Getting Started
 
 ```sh
-yarn add vue3-ssr-carousel
+yarn add @d3t-distribution/vue3-ssr-carousel
 ```
 
 ### Default
