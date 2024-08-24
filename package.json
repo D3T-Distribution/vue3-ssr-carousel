@@ -34,7 +34,7 @@
     "@percy/cypress": "^3.1.2",
     "@release-it/conventional-changelog": "^8.0.1",
     "cypress": "13.13.3",
-    "nuxt": "^3.12.4",
+    "nuxt": "^3.13.0",
     "prettier": "^3.3.3",
     "prism-themes": "^1.9.0",
     "release-it": "^17.6.0",
