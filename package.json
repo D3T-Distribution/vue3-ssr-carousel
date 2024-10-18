@@ -7,7 +7,7 @@
     "url": "git+https://github.com/D3T-Distribution/vue3-ssr-carousel"
   },
   "author": "D3T Distribution <it@motoblouz.com>",
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@4.5.1",
   "main": "dist/vue3-ssr-carousel.umd.js",
   "jsdelivr": "dist/vue3-ssr-carousel.umd.js",
   "unpkg": "dist/vue3-ssr-carousel.umd.js",
@@ -38,7 +38,7 @@
     "prettier": "^3.3.3",
     "prism-themes": "^1.9.0",
     "release-it": "^17.10.0",
-    "sass": "^1.80.1",
+    "sass": "^1.80.2",
     "typescript": "^5.6.3"
   }
 }
