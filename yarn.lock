@@ -956,13 +956,13 @@ __metadata:
     "@nuxt/content": "npm:2.13.4"
     "@nuxt/image": "npm:^1.8.1"
     "@percy/cypress": "npm:^3.1.2"
-    "@release-it/conventional-changelog": "npm:^9.0.0"
-    cypress: "npm:13.15.0"
+    "@release-it/conventional-changelog": "npm:^9.0.1"
+    cypress: "npm:13.15.1"
     nuxt: "npm:^3.13.2"
     prettier: "npm:^3.3.3"
     prism-themes: "npm:^1.9.0"
     release-it: "npm:^17.10.0"
-    sass: "npm:^1.80.1"
+    sass: "npm:^1.80.4"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
@@ -2355,9 +2355,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@release-it/conventional-changelog@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "@release-it/conventional-changelog@npm:9.0.0"
+"@release-it/conventional-changelog@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "@release-it/conventional-changelog@npm:9.0.1"
   dependencies:
     concat-stream: "npm:^2.0.0"
     conventional-changelog: "npm:^6.0.0"
@@ -2366,7 +2366,7 @@ __metadata:
     semver: "npm:^7.6.3"
   peerDependencies:
     release-it: ^17.0.0
-  checksum: 10c0/87a790ace2a24639d94d418f6f24fbcdd1abaca664624904ee4f704a4fa54187e434431288d599d8be30bc2bfcbc8b0e7501caceab4ddb9ca5a7deaa5d8d159c
+  checksum: 10c0/72d9f382cbb420a830ad71d4c66c5fdf2c2886929e8e7b681ecfa567de135ee3b4417476a0bb31fd49383ba45ad91ae92aca89f7b6e6dc2ce672fe1e2d536a3f
   languageName: node
   linkType: hard
 
@@ -5444,9 +5444,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:13.15.0":
-  version: 13.15.0
-  resolution: "cypress@npm:13.15.0"
+"cypress@npm:13.15.1":
+  version: 13.15.1
+  resolution: "cypress@npm:13.15.1"
   dependencies:
     "@cypress/request": "npm:^3.0.4"
     "@cypress/xvfb": "npm:^1.2.4"
@@ -5488,11 +5488,12 @@ __metadata:
     semver: "npm:^7.5.3"
     supports-color: "npm:^8.1.1"
     tmp: "npm:~0.2.3"
+    tree-kill: "npm:1.2.2"
     untildify: "npm:^4.0.0"
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: 10c0/d453c89f8220aecb726f842ea2895f452a4ec0c74f718834354533da62d28545eb68fc3ac21209df52d4314b4db4221d26ce8f33a6f08641eec3b4269f037717
+  checksum: 10c0/9deb474949cbd4c87e9b26a0b51c29f86f7c8ecdf865848f9e41bf7359f1887908856864b0fd722e4aa78e263fa4e0ff8bb5190495ff5f89fed89a6b3d38bb27
   languageName: node
   linkType: hard
 
@@ -12262,9 +12263,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.80.1":
-  version: 1.80.1
-  resolution: "sass@npm:1.80.1"
+"sass@npm:^1.80.4":
+  version: 1.80.4
+  resolution: "sass@npm:1.80.4"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -12272,7 +12273,7 @@ __metadata:
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 10c0/91ec2b8bcba4c3c68c047fdcbe04cb82646b5cc6446e04d9134ff3c642d9895363de5cbf88869f0a6aa81bcd2de9b8ccba7df7ff35d33a07a18754014ee7a31a
+  checksum: 10c0/58ca0f2d10720cde6621ee62f4bdbb537ea2ac572c565d5f02309f8271a5e1e880ad8c163b933e52b22b3dc0550973fb5a6033a500248e6a0d89dd050c1743cf
   languageName: node
   linkType: hard
 
@@ -13287,6 +13288,15 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 10c0/047cb209a6b60c742f05c9d3ace8fa510bff609995c129a37ace03476a9b12db4dbf975e74600830ef0796e18882b2381fb5fb1f6b4f96b832c374de3ab91a11
+  languageName: node
+  linkType: hard
+
+"tree-kill@npm:1.2.2":
+  version: 1.2.2
+  resolution: "tree-kill@npm:1.2.2"
+  bin:
+    tree-kill: cli.js
+  checksum: 10c0/7b1b7c7f17608a8f8d20a162e7957ac1ef6cd1636db1aba92f4e072dc31818c2ff0efac1e3d91064ede67ed5dc57c565420531a8134090a12ac10cf792ab14d2
   languageName: node
   linkType: hard
 
