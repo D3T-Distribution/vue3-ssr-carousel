@@ -198,7 +198,7 @@ export default {
     // Using this approach because the draggable HTML attribute didn't work in FF.
     // This only needs to be run once.
     preventContentDrag() {
-      if (this.contentDragPrevented) return;
+      if (this.contentDragPrevented || !this.$refs.track) return;
       this.$refs.track.$el.querySelectorAll('a, img').forEach((el) => {
         el.addEventListener('dragstart', (e) => {
           e.preventDefault();
