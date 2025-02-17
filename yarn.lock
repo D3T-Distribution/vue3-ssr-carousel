@@ -543,9 +543,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/request@npm:^3.0.6":
-  version: 3.0.6
-  resolution: "@cypress/request@npm:3.0.6"
+"@cypress/request@npm:^3.0.7":
+  version: 3.0.7
+  resolution: "@cypress/request@npm:3.0.7"
   dependencies:
     aws-sign2: "npm:~0.7.0"
     aws4: "npm:^1.8.0"
@@ -560,12 +560,12 @@ __metadata:
     json-stringify-safe: "npm:~5.0.1"
     mime-types: "npm:~2.1.19"
     performance-now: "npm:^2.1.0"
-    qs: "npm:6.13.0"
+    qs: "npm:6.13.1"
     safe-buffer: "npm:^5.1.2"
     tough-cookie: "npm:^5.0.0"
     tunnel-agent: "npm:^0.6.0"
     uuid: "npm:^8.3.2"
-  checksum: 10c0/24671e655768ef09b099e93fdef5bab58f501a050ddb833d0bf13a44d146e5b3359d71658daecd183d2cb37a1e56cf8aed8a736e3730a23e2383263bd87b2305
+  checksum: 10c0/645328a63eb47903209ec928fd88287fad1b38beb0c40c65cd8d0af11b292e880e47ec53a29592c866ab1e21828664abe6328cd2da8eedb20719a622df37ad58
   languageName: node
   linkType: hard
 
@@ -602,14 +602,14 @@ __metadata:
     "@cypress/code-coverage": "npm:^3.13.11"
     "@nuxt/content": "npm:2.13.4"
     "@nuxt/image": "npm:^1.9.0"
-    "@percy/cypress": "npm:^3.1.3"
+    "@percy/cypress": "npm:^3.1.4"
     "@release-it/conventional-changelog": "npm:^10.0.0"
-    cypress: "npm:14.0.1"
+    cypress: "npm:14.0.3"
     nuxt: "npm:^3.15.4"
-    prettier: "npm:^3.4.2"
+    prettier: "npm:^3.5.1"
     prism-themes: "npm:^1.9.0"
     release-it: "npm:^18.1.2"
-    sass: "npm:^1.83.4"
+    sass: "npm:^1.85.0"
     typescript: "npm:^5.7.3"
   languageName: unknown
   linkType: soft
@@ -2062,21 +2062,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/cypress@npm:^3.1.3":
-  version: 3.1.3
-  resolution: "@percy/cypress@npm:3.1.3"
+"@percy/cypress@npm:^3.1.4":
+  version: 3.1.4
+  resolution: "@percy/cypress@npm:3.1.4"
   dependencies:
-    "@percy/sdk-utils": "npm:^1.3.1"
+    "@percy/sdk-utils": "npm:^1.28.8"
   peerDependencies:
     cypress: ">=3"
-  checksum: 10c0/74227d244d26e4662b8562aa04ad84aaa665d8b0090a802edf7be74e1d8aae8924729b0af03f20f484978d930d4a2ecd48bfabdea4b058b10d340b95ec69a590
+  checksum: 10c0/6cac00474e9045a32a54c51f5496b981c47d7b6bb736e06745eb39a1e257014adcc79de01825c5c37c76b8a31bdbb11f57ed22686e2e9a78c5818a21f2a8a532
   languageName: node
   linkType: hard
 
-"@percy/sdk-utils@npm:^1.3.1":
-  version: 1.30.1
-  resolution: "@percy/sdk-utils@npm:1.30.1"
-  checksum: 10c0/ac60345a45fa8b8fb6f6f74d9a9f2530e4feeb2b3149f4d87cdb09f56e422cd44fae6b92e88e947e88587ce39a07a1215e63731f47d950a56ecf1595883fd124
+"@percy/sdk-utils@npm:^1.28.8":
+  version: 1.30.7
+  resolution: "@percy/sdk-utils@npm:1.30.7"
+  checksum: 10c0/96712e3763f55340788fa9a24f870bc4972651aeb766407d41cb710c6090e05c67f7ae360628cdafc179bb622d3a52f40b035d740edb9e6f55d64159e47053b3
   languageName: node
   linkType: hard
 
@@ -5048,11 +5048,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:14.0.1":
-  version: 14.0.1
-  resolution: "cypress@npm:14.0.1"
+"cypress@npm:14.0.3":
+  version: 14.0.3
+  resolution: "cypress@npm:14.0.3"
   dependencies:
-    "@cypress/request": "npm:^3.0.6"
+    "@cypress/request": "npm:^3.0.7"
     "@cypress/xvfb": "npm:^1.2.4"
     "@types/sinonjs__fake-timers": "npm:8.1.1"
     "@types/sizzle": "npm:^2.3.2"
@@ -5097,7 +5097,7 @@ __metadata:
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: 10c0/6601a5b8260c496c96234b3a569a157d9ee08beafb3f1dd500c9cdbf9a1534a3eb13b18fe67d6417e8d06226d109139cb3208e7eebdc789000816075f9a42430
+  checksum: 10c0/d9c3537541f9afac06a14da2022076d6afa5fc642d8c3f3bdcdf0b3cddb4f9cf310cf4d47346877c6a81333ac774605e3fd4a80b0311e58dbecf48778e410db1
   languageName: node
   linkType: hard
 
@@ -10731,12 +10731,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.4.2":
-  version: 3.4.2
-  resolution: "prettier@npm:3.4.2"
+"prettier@npm:^3.5.1":
+  version: 3.5.1
+  resolution: "prettier@npm:3.5.1"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/99e076a26ed0aba4ebc043880d0f08bbb8c59a4c6641cdee6cdadf2205bdd87aa1d7823f50c3aea41e015e99878d37c58d7b5f0e663bba0ef047f94e36b96446
+  checksum: 10c0/9f6f810eae455d6e4213845151a484a2338f2e0d6a8b84ee8e13a83af8a2421ef6c1e31e61e4b135671fb57b9541f6624648880cc2061ac803e243ac898c0123
   languageName: node
   linkType: hard
 
@@ -10890,12 +10890,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.13.0":
-  version: 6.13.0
-  resolution: "qs@npm:6.13.0"
+"qs@npm:6.13.1":
+  version: 6.13.1
+  resolution: "qs@npm:6.13.1"
   dependencies:
     side-channel: "npm:^1.0.6"
-  checksum: 10c0/62372cdeec24dc83a9fb240b7533c0fdcf0c5f7e0b83343edd7310f0ab4c8205a5e7c56406531f2e47e1b4878a3821d652be4192c841de5b032ca83619d8f860
+  checksum: 10c0/5ef527c0d62ffca5501322f0832d800ddc78eeb00da3b906f1b260ca0492721f8cdc13ee4b8fd8ac314a6ec37b948798c7b603ccc167e954088df392092f160c
   languageName: node
   linkType: hard
 
@@ -11654,9 +11654,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.83.4":
-  version: 1.83.4
-  resolution: "sass@npm:1.83.4"
+"sass@npm:^1.85.0":
+  version: 1.85.0
+  resolution: "sass@npm:1.85.0"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -11667,7 +11667,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10c0/6f27f0eebfeb50222b14baaeef548ef58a05daf8abd9797e6c499334ed7ad40541767056c8693780d06ca83d8836348ea7396a923d3be439b133507993ca78be
+  checksum: 10c0/a1af0c0596ae1904f66337d0c70a684db6e12210f97be4326cc3dcf18b0f956d7bc45ab2bcc7a8422d433d3eb3c9cb2cc8e60b2dafbdd01fb1ae5a23f5424690
   languageName: node
   linkType: hard
 
