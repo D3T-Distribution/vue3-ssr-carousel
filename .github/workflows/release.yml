@@ -24,7 +24,7 @@ jobs:
       - name: Run actions/setup-node
         uses: actions/setup-node@master
         with:
-          node-version: '22.x'
+          node-version: '22.14.0'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Initialize Git user
