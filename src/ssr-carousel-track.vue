@@ -126,7 +126,9 @@ export default {
             peekingIndex
           )
         ) {
-          style.display = 'none';
+          style.visibility = 'hidden';
+          style.position = 'absolute';
+          style.pointerEvents = 'none';
         }
 
         // Make peeking clones and slides not in viewport as aria-hidden

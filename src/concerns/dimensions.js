@@ -67,10 +67,10 @@ export default {
       return this.disabled
         ? 0
         : this.pageWidth -
-            this.trackWidth -
-            this.peekLeftPx +
-            this.peekRightPx +
-            1;
+        this.trackWidth -
+        this.peekLeftPx +
+        this.peekRightPx +
+        1;
     },
 
     // Check if the drag is currently out bounds
@@ -98,6 +98,12 @@ export default {
         this.$el.getBoundingClientRect().width + this.gutterWidth;
       this.viewportWidth = window.innerWidth;
       this.capturePeekingMeasurements();
+
+      // Re-capture after Vue patches the DOM with the new
+      // responsive peekStyles.  The first call above reads stale values because
+      // updating viewportWidth changes peekStyles (computed) but Vue has not
+      // re-rendered yet at this point.
+      this.$nextTick(() => this.capturePeekingMeasurements());
 
       if (this.isVariableWidth) {
         this.captureTrackWidth();
