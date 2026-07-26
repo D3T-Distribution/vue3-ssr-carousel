@@ -39,6 +39,6 @@
     "prism-themes": "^1.9.0",
     "release-it": "^18.1.2",
     "sass": "^1.86.0",
-    "typescript": "^5.8.2"
+    "typescript": "^7.0.2"
   }
 }
